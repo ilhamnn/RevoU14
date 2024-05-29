@@ -72,7 +72,7 @@
                                 <h3>Business Situation</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic deleniti culpa necessitatibus, numquam dolores nobis similique, doloribus blanditiis, ducimus corporis inventore perferendis consequatur nostrum sapiente. Ratione quia numquam omnis nulla?</p>
                                 <h3>Problem Statement</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab perferendis exercitationem ipsum repudiandae tenetur architecto, consectetur fuga amet saepe iusto nemo totam aperiam provident porro eveniet blanditiis accusamus ratione quaerat.</p>
+                                <p>Mengapa kenaikan profit tahun 2016 ke 2017 hanya 14,24%? → Mengidentifikasi variabel apa saja yang memiliki pengaruh kuat terhadap kenaikan profit sebesar 14,24%?</p>
                             </div>
                             <!-- <div class="column"></div> -->
                         </div>
@@ -90,7 +90,7 @@
                         <div class="cards">
                             <div class="card">
                                 <div class="card-content">
-                                    <div class="number">2.3M</div>
+                                    <div class="number" id="sales-summary">$0</div>
                                     <div class="card-name">Sales</div>
                                 </div>
                                 <div class="icon-box">
@@ -99,7 +99,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-content">
-                                    <div class="number">2.3M</div>
+                                    <div class="number" id="profit-summary">$0</div>
                                     <div class="card-name">Profit</div>
                                 </div>
                                 <div class="icon-box">
@@ -108,7 +108,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-content">
-                                    <div class="number">1.2K</div>
+                                    <div class="number" id="order-summary">0</div>
                                     <div class="card-name">Ordered</div>
                                 </div>
                                 <div class="icon-box">
@@ -117,7 +117,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-content">
-                                    <div class="number">793</div>
+                                    <div class="number" id="cust-summary">0</div>
                                     <div class="card-name">Customer</div>
                                 </div>
                                 <div class="icon-box">
@@ -126,7 +126,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-content">
-                                    <div class="number">47</div>
+                                    <div class="number" id="state-summary">0</div>
                                     <div class="card-name">State</div>
                                 </div>
                                 <div class="icon-box">
@@ -137,6 +137,9 @@
                         <!-- <div class="column"></div>
                         <div class="column"></div> -->
                         <div class="dashboard">
+                            <!-- <form action="./js/chart.js" class="filters">
+                                
+                            </form> -->
                             <div class="filters">
                                 <select>
                                     <option>Order Date (Month)</option>
@@ -154,13 +157,48 @@
                                     <option>State</option>
                                 </select>
                             </div>
-                            <div class="total-sales">Total Sales By Category and Segment</div>
-                            <div class="sales-profit">Sales & Profit by sub-category</div>
-                            <div class="city-lowest-sales">City by Lowest sales</div>
-                            <div class="profit-region">Profit By Region</div>
-                            <div class="discount-quantity">Discount and Quantity</div>
-                            <div class="heatmap-sales">Heat Map Sales By City</div>
-                            <div class="abs-aov">ABS and AOV In Segment</div>
+                            <div class="total-sales">
+                                <p>Total Sales By Category and Segment</p>
+                                <div class="chart-img">
+                                    <canvas id="total-sales-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="sales-profit">
+                                <p>Sales & Profit by sub-category</p>
+                                <div class="chart-img">
+                                    <canvas id="sales-profit-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="city-lowest-sales">
+                                <p>City by Lowest sales</p>
+                                <div class="chart-img">
+                                    <canvas id="city-lowest-sales-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="profit-region">
+                                <p>Profit By Region</p>
+                                <div class="chart-img">
+                                    <canvas id="profit-region-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="discount-quantity">
+                                <p>Discount and Quantity</p>
+                                <div class="chart-img">
+                                    <canvas id="diskon-quantity-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="heatmap-sales">
+                                <p>Heat Map Sales By City</p>
+                                <div class="chart-img">
+                                    <canvas id="heatmap-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="abs-aov">
+                                <p>ABS and AOV In Segment</p>
+                                <div class="chart-img">
+                                    <canvas id="abs-aov-chart"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -240,5 +278,7 @@
                     <p>Copyright &copy; 2024 - <a href="#"><b>Jayapura14 - TechAcademy</b></a>, All Rights Reserved.</p>
                 </div>
             </footer>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         </body>
 </html>
