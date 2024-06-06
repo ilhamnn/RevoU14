@@ -4,12 +4,17 @@ h1 {
     font-size: 48px;
     font-weight: 100;
 }
-h2 { /* sub-h1*/
-    /* font-size: 40px; */
+h2 {
     font-size: 32px;
     padding-bottom: 16px;
     font-weight: normal;
+    transition: transform 0.6s ease; /* Transisi untuk transformasi */
 }
+
+h2:hover {
+    transform: scale(1.3); /* Memperbesar ukuran h2 menjadi 2 kali lipat */
+}
+
 h3 {
     font-weight: bold;
 }
@@ -36,6 +41,7 @@ p {
     text-align: center;
     display: inline-block;
     border-radius: 5px;
+    transition: transform 0.3s ease;
 }
 .btn-secondary {
     background-color: #f4f4f4;
@@ -46,13 +52,17 @@ p {
     text-align: center;
     display: inline-block;
     border-radius: 5px;
+    transition: transform 0.3s ease;
 }
+
 .btn-primary:hover{
     /* background-color: #0056b3; */
     background-color: #007bff;
+    transform: scale(1.1);
 }
 .btn-secondary:hover{
     background-color: #d5d5d5;
+    transform: scale(1.1);
 }
 
 /* Tag global utk body, navbar, & footer */
@@ -90,7 +100,6 @@ nav {
     width: auto;
     height: 64px;
     float: left;
-    /* padding-left: 104px; */
     margin-left: 10%;
 }
 
@@ -119,10 +128,27 @@ a:hover {
     transition: .5s;
 }
 
-.navbar a:hover,
+.checkbtn {
+    font-size: 30px;
+    color: #0072f0;
+    float: right;
+    line-height: 64px;
+    margin-right: 8%;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+/* .navbar a:hover {
+    background-color: #f4f4f4;
+} */
+
+/* .navbar a:hover,
 .dropdown:hover .dropbtn {
     background-color: #f4f4f4;
-}
+} */
 
 /* Styling the dropdown menu */
 .dropdown {
@@ -171,22 +197,15 @@ a:hover {
     text-decoration: none;
 }
 
-.checkbtn {
-    font-size: 30px;
-    color: #0072f0;
-    float: right;
-    line-height: 65px;
-    /* margin-right: 40px; */
-    margin-right: 8%;
-    cursor: pointer;
-    display: none;
-}
-
-#check {
-    display: none;
-}
-
 /* ========================================== */
+.home{
+    width: 100%;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    height: 720px;
+}
 .hero{
     width: 100%;
     position: relative;
@@ -195,42 +214,76 @@ a:hover {
     overflow: hidden;
     height: 508px;
 }
+.bg-home{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 720px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
 .bg-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    z-index: -1; /* Menempatkan gambar latar belakang di belakang elemen lain */
+    z-index: -1;
+}
+.content-hero{
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 4%;
+    color: white;
+    margin-top: 65px;
+    padding: 64px;
 }
 .content {
     position: relative;
     z-index: 1;
     color: white;
-    top: 112px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top: 65px;
+    padding: 40px;
 }
-
+/* logo KM-Revou */
 #logo-hero {
     position: relative;
-    bottom: 32px;
-    right: 32px;
     text-align: right;
     padding: 64px 64px 32px;
 }
-
 #logo-hero img {
     margin-left: 24px;
     height: 56px;
 }
+.logoutama{
+    position: relative;
+    margin: auto;
+    padding: 64px 64px 64px;
+}
+.logoutama img{
+    height: 56px;
+    margin-right: 24px;
+}
 
-
+/* ==== container ==== */
 .title-capstone1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     padding: 64px 64px 24px;
-    margin: 8px;
+    margin: auto;
+    font-weight: bolder;
 }
     
 
@@ -250,6 +303,7 @@ a:hover {
 .overview {
     flex: 1;
     padding: 64px;
+    text-align: justify;
 }
 
 .container-analysis {
@@ -265,6 +319,7 @@ a:hover {
     flex: 1; 
     color: white;
     padding: 56px;
+    text-align: justify;
 }
 
 .container-teams,
@@ -305,19 +360,10 @@ a:hover {
 .flex-container > div {
     margin: 2px;
     padding: 4px;
+    transition: transform 0.3s ease; 
 }
-
-.dropdown2 {
-    width: 100%;
-    max-width: 1200px; /* Atur lebar maksimum sesuai kebutuhan */
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-    align-items: center;
-}
-
-.dropdown select {
-    font-size: 16px;
+.flex-container > div:hover {
+    transform: scale(1.1);
 }
 
 .flex-container2 {
@@ -333,12 +379,68 @@ a:hover {
 .flex-container2 > div {
     margin: 2px;
     padding: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* =======  Filter Section Team ======= */
+.dropdown2 {
+    width: 100%;
+    height: 56px;
+    max-width: 620px; /* Atur lebar maksimum sesuai kebutuhan */
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    border-radius: 30px;
+    background: #f4f4f4;
+    box-shadow: 0 0 10px rgba(151, 149, 149, 0.2);
+    align-items: center;
+}
+
+.filter-btn {
+    background: inherit;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 296px;
+    height: 44px;
+    color: black;
+    /* transition: background-color 0.3s ease; */
+}
+.filter-btn i {
+    font-size: 16px;
+    color: inherit;
+    margin-right: 8px;
+}
+.filter-btn.selected{
+    background: #fff;
+    color: #0072f0;
+    transition: ease-in-out .5s;
+}
+/* === tampilan foto anggota === */
+.tampilan {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(100%);
+}
+
+#tampilan1 {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .foto-container {
     text-align: center;
     margin: 10px;
     padding: 0px 16px;
+    transition: transform 0.3s ease; /* Tambahkan transisi untuk transform */
+}
+
+.foto-container:hover {
+    transform: scale(1.1); /* Membesarkan elemen saat dihover */
 }
 
 .foto-container img {
@@ -356,7 +458,7 @@ a:hover {
     margin-top: 5px;
     font-size: smaller;
 }
-
+/* ==== gambar section technology ==== */
 .technology img {
     height: 64px;
     width: 64px;
@@ -375,14 +477,17 @@ a:hover {
     height: 0.25rem;
     background: #0072f0;
     border-radius: 1rem;
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
+    transition: width 0.6s ease;
 }
-
+.line:hover{
+    width: 264px;
+}
 /*================================*/
 .form-section {
     height: 100vh;
     padding: 5%; 
-    background-image: linear-gradient(to right, white, white, rgb(0, 114, 240, 0.6));
+    background-image: linear-gradient(to right , white, white, rgb(0, 114, 240, 0.6));
     align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -409,10 +514,10 @@ a:hover {
     padding: 24px 0px;
 }
 
-/* .form-group input,
+.form-group input,
 .form-group textarea {
     transition: border-color 0.3s;
-} */
+}
 
 .form-group input:focus,
 .form-group textarea:focus {
@@ -455,7 +560,6 @@ button {
     font-family: inherit;
     border: none;
 }
-
 
 /* ========================================== */
 footer {
@@ -563,7 +667,6 @@ div.social {
 .copyright a:hover {
     color: #0072f0;
 }
-
 /* ========================================== */
 /* Media Screen */
 @media screen and (min-width: 1500px) {
@@ -613,33 +716,40 @@ div.social {
 
     nav ul {
         position: fixed;
-        width: 20%;
-        height: 100%;
-        background: #f4f4f4;
-        top: 65px;
-        left: 100%;
+        width: 100%;
+        height: fit-content;
+        background: #fff;
+        top: 100%;
+        /* left: 100%; */
         transition: all .5s;
         z-index: 999;
     }
 
     nav ul li {
         display: block;
-        margin: 50px 0;
+        margin: auto;
+        padding: 24px 0 16px 0;
         line-height: 30px;
         z-index: 999;
     }
 
     nav ul li a {
         font-size: 16px;
+        /* padding: 16px 72px 16px 24px; */
+    }
+
+    a:active{
+        background: #0072f0;
+        color: #fff;
     }
 
     a:hover {
-        background: #d5d5d5;
+        background: #f4f4f4;
         color: #0072f0;
     }
 
     #check:checked~ul {
-        left: 70%;
+        top: 65px;
     }
 
     .dropbtn {
@@ -647,7 +757,7 @@ div.social {
     }
 
     .dropdown-content {
-        right: 0;
+        bottom: 0;
     }
 
     /* body */
@@ -676,10 +786,12 @@ div.social {
         justify-content: center;
         background-color: #fff;
         padding: 5%;
-        width: 60vh;
+        /* width: 60vh; */
         /* height: 70vh; */
         height: fit-content;
+       
     }
+    
     .suggestion-box h3{
         padding: 16px 0px;
     }
@@ -735,5 +847,3 @@ div.social {
         /* 2 foto per baris pada layar kecil (misalnya smartphone) */
     }
 }
-
-/* Maksimum lebar untuk desktop atau tablet */
